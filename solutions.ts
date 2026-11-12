@@ -62,12 +62,26 @@ class Employee {
 
 class Manager extends Employee{
     constructor (
-        private department : string,
         name : string,
-        baseSalary : number
+        baseSalary : number,
+        private department : string,
     ) {super(name, baseSalary)}
 
     getRoleInfo() : string {
         return `Manager of ${this.department}: ${this.name}`
     }
+}
+
+
+const validateAgeAsync = (age : number): Promise<string> => {
+    return new Promise ((resolve, reject) => {
+        if(age < 18) {
+            reject(new Error("Access Denied: Must be 18 or older"));
+        }
+        else {
+            setTimeout(() => {
+                resolve("Access Granted")
+            }, 1000)
+        }
+    }) 
 }

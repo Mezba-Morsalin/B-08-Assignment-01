@@ -20,3 +20,9 @@ const processInput = (value : string | number | boolean) : string | number => {
 }
 
 
+const formatCoordinate = (location : [number, number, string]): string => {
+    const [latitude, longitude, locationName] = location
+
+    return `Location: ${[locationName]} (${latitude}, ${longitude})`
+}
+

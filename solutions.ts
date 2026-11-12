@@ -1,4 +1,11 @@
-const name : string = "Mezba"
+const multiplyValue = (value : number, multiplier? : number) => {
+    if (multiplier === undefined) {
+        multiplier = 2
+    }
+    return value * multiplier
+}
 
 
-console.log(name);
+
+
+

@@ -42,3 +42,32 @@ interface Course {
 const getPopularCourses = (courses : Course[], minStudents :  number) : Course[] => {
     return courses.filter(course => course.isPublished === true && course.students >= minStudents)
 }
+
+
+const pluckValues =<T, K extends keyof T> (items: T[], key: K): T[K][] => {
+    return items.map(item => item[key])
+}
+
+
+class Employee {
+    constructor (
+       protected name : string, 
+       private baseSalary : number) {
+    }
+
+    getDetails() : string {
+        return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`
+    }
+}
+
+class Manager extends Employee{
+    constructor (
+        private department : string,
+        name : string,
+        baseSalary : number
+    ) {super(name, baseSalary)}
+
+    getRoleInfo() : string {
+        return `Manager of ${this.department}: ${this.name}`
+    }
+}
